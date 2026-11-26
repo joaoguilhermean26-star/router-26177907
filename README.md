@@ -76,5 +76,7 @@ Executar o projeto:
 
 ## Funcionalidades opcionais
 
-- O3 — Remover turmas utilizando filter() e função
-  recebida via props, com confirmação de exclusão.
+- O3 — Remover turmas com confirmação de exclusão.
+- O5 — Busca de turmas pelo código.
+- O6 — Persistência dos registros com localStorage
+  e useEffect.
