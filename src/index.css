@@ -1,0 +1,109 @@
+:root {
+  --cor-principal: hsl(187, 60%, 35%);
+  --cor-fundo: #f5f7fa;
+  --cor-texto: #1e293b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cor-principal);
+  color: white;
+  padding: 20px 40px;
+  gap: 20px;
+}
+
+.navbar-titulo {
+  font-size: 22px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.navbar-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-links a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+}
+
+.navbar-quantidade {
+  background-color: white;
+  color: var(--cor-principal);
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* Conteúdo das páginas */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+main h1 {
+  margin-bottom: 15px;
+}
+
+main p {
+  line-height: 1.6;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px 15px;
+  }
+
+  .navbar-titulo {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .navbar-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .navbar-links a {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
