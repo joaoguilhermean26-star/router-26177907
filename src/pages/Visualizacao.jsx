@@ -87,12 +87,11 @@ function Visualizacao({ title, turmas, removerTurma }) {
         </div>
       ) : (
         IDIOMAS.map(idioma => {
-          // Agrupa as turmas filtradas por idioma.
+          // Agrupa os registros filtrados por idioma.
           const turmasIdioma = turmasFiltradas.filter(
             turma => turma.idioma === idioma
           );
 
-          // Esconde grupos sem resultados durante a busca.
           if (busca.trim() && turmasIdioma.length === 0) {
             return null;
           }
@@ -119,7 +118,14 @@ function Visualizacao({ title, turmas, removerTurma }) {
                       key={turma.id}
                     >
                       <div className="card-turma-topo">
-                        <h3>{turma.codigo}</h3>
+                        <h3>
+                          <Link
+                            className="link-turma"
+                            to={`/turmas/${turma.id}`}
+                          >
+                            {turma.codigo}
+                          </Link>
+                        </h3>
 
                         <span className="turma-vagas">
                           {turma.vagas} vagas
@@ -131,6 +137,13 @@ function Visualizacao({ title, turmas, removerTurma }) {
                       </p>
 
                       <div className="card-turma-acoes">
+                        <Link
+                          className="botao-detalhes"
+                          to={`/turmas/${turma.id}`}
+                        >
+                          Ver detalhes
+                        </Link>
+
                         <button
                           type="button"
                           className="botao-remover"

@@ -1,6 +1,9 @@
-import { NavLink } from "react-router-dom";
+
+import { NavLink, useLocation } from "react-router-dom";
 
 function Navbar({ quantidade }) {
+  const location = useLocation();
+
   return (
     <nav className="navbar">
       <h2 className="navbar-titulo">
@@ -16,7 +19,14 @@ function Navbar({ quantidade }) {
           Nova turma
         </NavLink>
 
-        <NavLink to="/turmas" end>
+        <NavLink
+          to="/turmas"
+          className={({ isActive }) =>
+            isActive && location.pathname !== "/turmas/novo"
+              ? "active"
+              : ""
+          }
+        >
           Turmas
           <span className="navbar-quantidade">
             {quantidade}

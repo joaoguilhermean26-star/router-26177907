@@ -76,7 +76,8 @@ Executar o projeto:
 
 ## Funcionalidades opcionais
 
-- O3 — Remover turmas com confirmação de exclusão.
+- O2 — Página de detalhes utilizando useParams e find.
+- O3 — Remoção de turmas com confirmação de exclusão.
 - O5 — Busca de turmas pelo código.
 - O6 — Persistência dos registros com localStorage
   e useEffect.

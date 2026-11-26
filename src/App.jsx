@@ -9,6 +9,7 @@ import Home from "./pages/Home.jsx";
 import Cadastro from "./pages/Cadastro.jsx";
 import Visualizacao from "./pages/Visualizacao.jsx";
 import NaoEncontrada from "./pages/NaoEncontrada.jsx";
+import Detalhes from "./pages/Detalhes.jsx";
 
 const TITLE = "Turmas cadastradas";
 const CHAVE_STORAGE = "escola-26177907-turmas";
@@ -38,7 +39,7 @@ const TURMAS_INICIAIS = [
 ];
 
 function App() {
-  // Recupera as turmas salvas ou utiliza os registros iniciais.
+  // Recupera os registros salvos no navegador.
   const [turmas, setTurmas] = useState(() => {
     try {
       const dadosSalvos = localStorage.getItem(CHAVE_STORAGE);
@@ -57,7 +58,7 @@ function App() {
     return TURMAS_INICIAIS;
   });
 
-  // Salva os registros sempre que o estado das turmas muda.
+  // Salva os registros quando o estado é atualizado.
   useEffect(() => {
     try {
       localStorage.setItem(
@@ -108,6 +109,11 @@ function App() {
               removerTurma={removerTurma}
             />
           }
+        />
+
+        <Route
+          path="/turmas/:id"
+          element={<Detalhes turmas={turmas} />}
         />
 
         <Route
