@@ -44,6 +44,13 @@ function App() {
     ]);
   }
 
+  // Remove a turma que possui o ID informado.
+  function removerTurma(id) {
+    setTurmas(turmasAnteriores =>
+      turmasAnteriores.filter(turma => turma.id !== id)
+    );
+  }
+
   return (
     <>
       <Navbar quantidade={turmas.length} />
@@ -67,6 +74,7 @@ function App() {
             <Visualizacao
               title={TITLE}
               turmas={turmas}
+              removerTurma={removerTurma}
             />
           }
         />

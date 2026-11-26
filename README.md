@@ -76,4 +76,5 @@ Executar o projeto:
 
 ## Funcionalidades opcionais
 
-Nenhuma implementada até o momento.
+- O3 — Remover turmas utilizando filter() e função
+  recebida via props, com confirmação de exclusão.

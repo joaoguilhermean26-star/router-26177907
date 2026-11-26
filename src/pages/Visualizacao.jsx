@@ -3,12 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 
 const IDIOMAS = ["Inglês", "Espanhol", "Francês"];
 
-function Visualizacao({ title, turmas }) {
-  // O título e as turmas são recebidos do App via props.
-  // O useLocation recebe a mensagem enviada pelo cadastro.
+function Visualizacao({ title, turmas, removerTurma }) {
+  // O título, as turmas e a função de remover vêm do App.
 
   const location = useLocation();
   const mensagem = location.state?.mensagem;
+
+  // Solicita confirmação antes de remover uma turma.
+  function confirmarRemocao(id) {
+    if (window.confirm("Deseja realmente remover esta turma?")) {
+      removerTurma(id);
+    }
+  }
 
   return (
     <main>
@@ -42,7 +48,6 @@ function Visualizacao({ title, turmas }) {
         </div>
       ) : (
         IDIOMAS.map(idioma => {
-          // Separa as turmas que possuem o idioma atual.
           const turmasIdioma = turmas.filter(
             turma => turma.idioma === idioma
           );
@@ -79,6 +84,16 @@ function Visualizacao({ title, turmas }) {
                       <p>
                         Professor: {turma.professor}
                       </p>
+
+                      <div className="card-turma-acoes">
+                        <button
+                          type="button"
+                          className="botao-remover"
+                          onClick={() => confirmarRemocao(turma.id)}
+                        >
+                          Remover
+                        </button>
+                      </div>
                     </article>
                   ))}
                 </div>
