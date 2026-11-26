@@ -1,16 +1,79 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# Escola de idiomas — João
 
-Currently, two official plugins are available:
+Projeto individual desenvolvido para a disciplina de
+Front-End, utilizando React e React Router.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Identificação
 
-## React Compiler
+- Aluno: João Guiilherme Araujo Nunes
+- RA: 26177907
+- Curso: Análise e Desenvolvimento de Sistemas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Meus parâmetros
 
-## Expanding the Oxlint configuration
+RA: 26177907
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Soma dos dígitos:
+2 + 6 + 1 + 7 + 7 + 9 + 0 + 7 = 39
+
+| Parâmetro | Cálculo | Resultado |
+|---|---|---|
+| A | 07 % 20 | 7 |
+| B | Antepenúltimo dígito | 9 |
+| C | 39 % 6 | 3 |
+| D | 7 % 4 | 3 |
+| Cor | 907 % 360 | 187 |
+
+### Características do sistema
+
+- Tema A7: Escola de idiomas.
+- Validação B9: mensagem de sucesso enviada pelo
+  state do navigate após o cadastro.
+- Visualização C3: turmas agrupadas por idioma.
+- Navbar D3: nome do sistema à esquerda, links
+  à direita e quantidade de registros.
+- Cor principal: hsl(187, 60%, 35%).
+
+## Funcionalidades
+
+- Cadastro de turmas.
+- Visualização agrupada por idioma.
+- Validação de campos obrigatórios.
+- Mensagem de sucesso após cadastrar.
+- Contador de turmas cadastradas.
+- Navegação entre páginas sem recarregamento.
+- Página de erro 404.
+- Interface responsiva.
+
+## Rotas
+
+| Rota | Página |
+|---|---|
+| / | Home |
+| /turmas/novo | Cadastro |
+| /turmas | Visualização |
+| * | Página não encontrada |
+
+## Tecnologias utilizadas
+
+- React
+- React Router DOM
+- JavaScript
+- HTML
+- CSS
+- Vite
+
+## Como executar
+
+Instalar as dependências:
+
+    npm install
+
+Executar o projeto:
+
+    npm run dev
+
+## Funcionalidades opcionais
+
+Nenhuma implementada até o momento.
