@@ -451,3 +451,42 @@ main {
   background-color: #dc2626;
   color: white;
 }
+
+/* Campo de busca */
+
+.campo-busca {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.campo-busca label {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.campo-busca input {
+  width: 100%;
+  max-width: 450px;
+  padding: 13px 15px;
+  font-size: 15px;
+  font-family: inherit;
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.campo-busca input:focus {
+  outline: 2px solid var(--cor-principal);
+  outline-offset: 1px;
+}
+
+.campo-busca p {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.lista-vazia button {
+  margin-top: 15px;
+}

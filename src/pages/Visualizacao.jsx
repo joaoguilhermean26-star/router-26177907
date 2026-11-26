@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const IDIOMAS = ["Inglês", "Espanhol", "Francês"];
@@ -6,10 +7,19 @@ const IDIOMAS = ["Inglês", "Espanhol", "Francês"];
 function Visualizacao({ title, turmas, removerTurma }) {
   // O título, as turmas e a função de remover vêm do App.
 
+  const [busca, setBusca] = useState("");
+
   const location = useLocation();
   const mensagem = location.state?.mensagem;
 
-  // Solicita confirmação antes de remover uma turma.
+  // Filtra as turmas pelo código digitado.
+  const turmasFiltradas = turmas.filter(turma =>
+    turma.codigo.toLowerCase().includes(
+      busca.trim().toLowerCase()
+    )
+  );
+
+  // Solicita confirmação antes de remover.
   function confirmarRemocao(id) {
     if (window.confirm("Deseja realmente remover esta turma?")) {
       removerTurma(id);
@@ -38,6 +48,23 @@ function Visualizacao({ title, turmas, removerTurma }) {
         </p>
       )}
 
+      <div className="campo-busca">
+        <label htmlFor="busca">Buscar turma</label>
+
+        <input
+          id="busca"
+          type="search"
+          placeholder="Buscar pelo código da turma..."
+          value={busca}
+          onChange={e => setBusca(e.target.value)}
+        />
+
+        <p>
+          {turmasFiltradas.length} de {turmas.length} turmas
+          encontradas
+        </p>
+      </div>
+
       {turmas.length === 0 ? (
         <div className="lista-vazia">
           <p>Nenhuma turma cadastrada.</p>
@@ -46,11 +73,29 @@ function Visualizacao({ title, turmas, removerTurma }) {
             Cadastrar turma
           </Link>
         </div>
+      ) : turmasFiltradas.length === 0 ? (
+        <div className="lista-vazia">
+          <p>Nenhuma turma encontrada.</p>
+
+          <button
+            type="button"
+            className="botao-secundario"
+            onClick={() => setBusca("")}
+          >
+            Limpar busca
+          </button>
+        </div>
       ) : (
         IDIOMAS.map(idioma => {
-          const turmasIdioma = turmas.filter(
+          // Agrupa as turmas filtradas por idioma.
+          const turmasIdioma = turmasFiltradas.filter(
             turma => turma.idioma === idioma
           );
+
+          // Esconde grupos sem resultados durante a busca.
+          if (busca.trim() && turmasIdioma.length === 0) {
+            return null;
+          }
 
           return (
             <section className="grupo-idioma" key={idioma}>
